@@ -5,7 +5,7 @@ require('dotenv').config();
 // schedule.scheduleJob('0 */5 * * *', async () => {
 schedule.scheduleJob('*/1 * * * *', async () => {
     console.log(`${new Date().toLocaleTimeString()} | running job...`);
-    const result = await jobToDo(process.env.USERNAME, process.env.PASSWORD);
+    const result = await jobToDo(process.env.SSO_USERNAME, process.env.SSO_PASSWORD);
     if(result) {
         console.log(`${new Date().toLocaleTimeString()} | job done!`);
     } else {
