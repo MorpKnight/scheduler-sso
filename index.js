@@ -33,7 +33,7 @@ const jobToDo = async (username, password) => {
         await page.click('button[type="submit"]');
 
         console.log(page.url());
-        await page.waitForNavigation({ timeout: 1000 });
+        await page.waitForNavigation();
         
         return true;
     } catch (error) {
