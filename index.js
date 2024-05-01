@@ -21,6 +21,7 @@ const jobToDo = async (username, password) => {
         page.setDefaultNavigationTimeout(0);
 
         await page.goto('https://sso.ui.ac.id/cas/login?service=http%3A%2F%2Fgw-teknik.ui.ac.id%2Fcas%2Fgateway.php%3Fkey%3D661746a7f3928661746a7f3966%26browse%3D');
+        // await page.goto('https://sso.ui.ac.id/cas/login');
 
         while (await page.$('#username') === null) {
             await page.waitForTimeout(1000);
@@ -30,6 +31,7 @@ const jobToDo = async (username, password) => {
 
         await page.type('#username', username);
         await page.type('#password', password);
+        await page.screenshot({ path: 'screenshot.png' });
         await page.click('button[type="submit"]');
 
         console.log(page.url());
