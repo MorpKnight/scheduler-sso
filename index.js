@@ -2,14 +2,14 @@ const puppeteer = require('puppeteer');
 const schedule = require('node-schedule');
 require('dotenv').config();
 
-schedule.scheduleJob('0 */5 * * *', async () => {
+// schedule.scheduleJob('0 */5 * * *', async () => {
+schedule.scheduleJob('*/1 * * * *', async () => {
     console.log(`${new Date().toLocaleTimeString()} | running job...`);
     const result = await jobToDo(process.env.USERNAME, process.env.PASSWORD);
     if(result) {
         console.log(`${new Date().toLocaleTimeString()} | job done!`);
     } else {
         console.log(`${new Date().toLocaleTimeString()} | job failed!`);
-    
     }
 });
 
